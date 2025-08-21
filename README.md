@@ -1,4 +1,4 @@
-# poo_trabalho_jdbc
+# poo_imobiliária_da_família
 
 ## Equipe
 
