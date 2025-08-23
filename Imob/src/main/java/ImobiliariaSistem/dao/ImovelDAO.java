@@ -19,4 +19,23 @@ public class ImovelDAO {
             e.printStackTrace();
         }
     }
+    public void listar() {
+        String sql = "SELECT * FROM Imovel";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id"));
+                System.out.println("Endereço: " + rs.getString("endereco"));
+                System.out.println("Valor: R$" + rs.getDouble("valor"));
+                System.out.println("--------------------");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

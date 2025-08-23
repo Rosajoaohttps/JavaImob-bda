@@ -13,7 +13,10 @@ public class DatabaseCreator {
             String sqlCliente = "CREATE TABLE IF NOT EXISTS Cliente (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY, " +
                     "nome VARCHAR(100) NOT NULL, " +
-                    "email VARCHAR(100) NOT NULL)";
+                    "email VARCHAR(100) NOT NULL, " +
+                    "telefone VARCHAR(100) NOT NULL, " +
+                    "cpf VARCHAR(14) NOT NULL)";
+
 
             String sqlImovel = "CREATE TABLE IF NOT EXISTS Imovel (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY, " +

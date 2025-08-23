@@ -20,4 +20,29 @@ public class ContratoDAO {
             e.printStackTrace();
         }
     }
+    public void listar() {
+        String sql = "SELECT c.id, cl.nome AS cliente_nome, i.endereco AS imovel_endereco, c.data " +
+                "FROM Contrato c " +
+                "JOIN Cliente cl ON c.cliente_id = cl.id " +
+                "JOIN Imovel i ON c.imovel_id = i.id";
+
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                System.out.println("ID do Contrato: " + rs.getInt("id"));
+                System.out.println("Cliente: " + rs.getString("cliente_nome"));
+                System.out.println("Imóvel: " + rs.getString("imovel_endereco"));
+                System.out.println("Data: " + rs.getDate("data"));
+                System.out.println("--------------------");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
+
